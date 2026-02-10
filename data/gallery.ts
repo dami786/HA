@@ -33,6 +33,6 @@ export const GALLERY_IMAGES = [
   { id: 30, src: '/WhatsApp Image 2026-02-10 at 7.21.24 PM 5.jpeg', alt: 'Memory 30' },
   { id: 31, src: '/WhatsApp Image 2026-02-10 at 7.21.24 PM 6.jpeg', alt: 'Memory 31' },
   { id: 32, src: '/WhatsApp Image 2026-02-10 at 7.21.25 PM.jpeg', alt: 'Memory 32' },
-  { id: 33, src: '/WhatsApp Image 2026-02-10 at 7.21.26 PM 6.jpeg', alt: 'Memory 33' },
-  { id: 34, src: '/WhatsApp Image 2026-02-10 at 7.21.26 PM.jpeg', alt: 'Memory 34' },
+  { id: 33, src: '/img 2.jpg.jpeg', alt: 'Memory 33' },
+  { id: 34, src: '/img 3.jpg.jpeg', alt: 'Memory 34' },
 ];
