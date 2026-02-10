@@ -1,0 +1,370 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-dancing: 'Dancing Script', cursive;
+  --font-poppins: 'Poppins', sans-serif;
+  --max-story: 1200px;
+  /* Deep romantic gradients */
+  --gradient-romantic: linear-gradient(
+    135deg,
+    #1a0a2e,
+    #2d1b4e,
+    #4a1942,
+    #6b2d5c,
+    #c44569,
+    #f8b4c4,
+    #ffd1dc,
+    #fff0f5
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    #fff5f7,
+    #ffe4ec,
+    #ffd1dc,
+    #f8b4c4,
+    #e8a0b8,
+    #d4738c
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.snap-y-mandatory {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRIMARY BACKGROUND - Multi-layer, smooth, no harsh breaks
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  min-height: 100vh;
+  color: #5b21b6;
+  font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-dreamy-base {
+  /* Body gradient: deep night → romantic pink */
+  background: linear-gradient(
+    135deg,
+    #1a0a2e,
+    #2d1b4e,
+    #4a1942,
+    #6b2d5c,
+    #c44569,
+    #f8b4c4,
+    #ffd1dc
+  );
+  background-attachment: fixed;
+  background-size: 120% 120%;
+  background-position: 0% 0%;
+  animation: gradient-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-drift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 20% 15%; }
+}
+
+/* Grain overlay - premium texture, very subtle */
+.bg-grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION BACKGROUND VARIATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hero - stronger center glow, spotlight */
+.bg-section-hero {
+  background: radial-gradient(
+      ellipse 120% 100% at 50% 20%,
+      rgba(251, 207, 232, 0.4) 0%,
+      rgba(233, 213, 255, 0.2) 35%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 50% 50%,
+      rgba(249, 168, 212, 0.15) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      165deg,
+      var(--bg-cream) 0%,
+      var(--bg-blush) 10%,
+      var(--bg-pink) 25%,
+      var(--bg-lavender) 45%,
+      var(--bg-lavender-mid) 65%,
+      var(--bg-blush-mid) 85%,
+      var(--bg-cream) 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Puzzle - softer, calm, slight vignette */
+.bg-section-puzzle {
+  background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      170deg,
+      var(--bg-blush) 0%,
+      var(--bg-blush-mid) 20%,
+      var(--bg-pink) 40%,
+      var(--bg-lavender) 60%,
+      var(--bg-blush-mid) 85%,
+      var(--bg-cream) 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Gallery - darker romantic, purple + rose */
+.bg-section-gallery {
+  background: linear-gradient(
+    160deg,
+    #fdf2f8 0%,
+    #fce7f3 15%,
+    #fbcfe8 30%,
+    #e9d5ff 50%,
+    #ddd6fe 70%,
+    #c4b5fd 85%,
+    #e9d5ff 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Final - deep romantic, cinematic */
+.bg-section-final {
+  background: linear-gradient(
+    180deg,
+    #fce7f3 0%,
+    #fbcfe8 15%,
+    #e9d5ff 35%,
+    #c4b5fd 55%,
+    #a78bfa 75%,
+    #7c3aed 90%,
+    #5b21b6 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Typography */
+.font-h1 {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.font-h2 {
+  font-family: var(--font-playfair);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-romantic-line {
+  font-family: var(--font-dancing);
+}
+
+/* Glass card - depth over background */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Romantic buttons */
+.btn-romantic-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  background-image: linear-gradient(135deg, #f973a1, #fb7185, #fbb6ce);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--font-playfair);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 40px rgba(248, 180, 196, 0.55);
+}
+
+.btn-romantic-primary:hover {
+  box-shadow: 0 18px 50px rgba(248, 180, 196, 0.8);
+}
+
+.btn-romantic-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.1rem;
+  border-radius: 9999px;
+  background: rgba(10, 6, 25, 0.4);
+  color: #ffe4ec;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-playfair);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.55);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Floating hearts & glow animations
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes float-heart {
+  0% {
+    transform: translate3d(0, 100vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(0, -100vh, 0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-heart-delayed {
+  0% {
+    transform: translate3d(0, 100vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  60% {
+    transform: translate3d(50px, 0, 0) rotate(-180deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(50px, -100vh, 0) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+.heart-float {
+  animation: float-heart 15s linear infinite;
+}
+
+.heart-float-delayed {
+  animation: float-heart-delayed 18s linear infinite;
+}
+
+@keyframes success-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.18);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  75% {
+    transform: scale(1);
+  }
+}
+
+.animate-success-heart {
+  animation: success-heartbeat 1.4s ease-in-out infinite;
+}
+
+.glow-soft {
+  box-shadow: 0 0 30px rgba(248, 180, 196, 0.6);
+}
+
+@keyframes typingCaret {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Pill input */
+.input-romantic {
+  @apply rounded-full border-2 border-romantic-lavender/40 bg-white/60 px-5 py-3 transition-all duration-200;
+}
+.input-romantic:focus {
+  outline: none;
+  border-color: rgba(249, 168, 212, 0.8);
+  box-shadow: 0 0 0 4px rgba(249, 168, 212, 0.2);
+}
+
+.input-romantic::placeholder {
+  color: rgba(91, 33, 182, 0.5);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(252, 231, 243, 0.8);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(249, 168, 212, 0.7);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f9a8d4;
+}
+
+/* Hide scrollbar for specific sliders */
+.auto-slider {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.auto-slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+}
+
+::selection {
+  background-color: rgba(225, 29, 72, 0.15);
+  color: #831843;
+}
