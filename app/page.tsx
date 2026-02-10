@@ -29,7 +29,7 @@ const FEATURED_VIDEOS = 3;
 export default function StoryPage() {
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const [typedName, setTypedName] = useState('');
-  const fullName = 'Dameer ❤️ Savera';
+  const fullName = 'Dameer ❤️ Savera G (Love you my sweetie)';
 
   useEffect(() => {
     // Typing effect for the names under "Happy 1st Anniversary"
@@ -119,8 +119,14 @@ export default function StoryPage() {
                 {typedName}
               </span>
             </motion.p>
-            <motion.p variants={item} className="text-white/80 text-sm md:text-base mb-8">
+            <motion.p variants={item} className="text-white/80 text-sm md:text-base  px-2 py-4 mb-8">
+            <span className='  bg-pink-500/20
+  backdrop-blur-xl
+  border border-pink-300/40
+  shadow-[0_8px_32px_rgba(236,72,153,0.35)]
+  rounded-2xl px-3 py-4 rounded-full text-white'>
               11 Feb 2025 → 11 Feb 2026
+              </span>
             </motion.p>
             <motion.p
               variants={item}
@@ -133,7 +139,7 @@ export default function StoryPage() {
               <CountdownTimer />
             </motion.div>
             <motion.div variants={item} className="mt-12">
-              <Link href="/puzzles">
+              <Link href="">
                 <motion.span
                   className="btn-romantic-primary"
                   whileHover={{ scale: 1.02, boxShadow: '0 16px 48px rgba(251, 113, 133, 0.2)' }}

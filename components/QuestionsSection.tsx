@@ -37,10 +37,10 @@ export function QuestionsSection({
       animate={{ opacity: 1, y: 0 }}
       className="mt-8"
     >
-      <h2 className="font-display text-2xl md:text-3xl font-semibold text-romantic-rose text-center mb-2 tracking-heading">
+      <h2 className="font-display text-2xl md:text-3xl font-semibold text-white text-center mb-2 tracking-heading">
         💌 Tell me about you
       </h2>
-      <p className="text-center text-white/80 text-sm mb-6 max-w-md mx-auto font-display">
+      <p className="text-center text-white/90 text-sm mb-6 max-w-md mx-auto font-display">
         Answer at your own pace, from your heart. There are no wrong answers here, only us.
       </p>
 
@@ -53,7 +53,7 @@ export function QuestionsSection({
                 ? 'bg-romantic-pink-soft/60 text-romantic-rose border-romantic-pink-soft'
                 : isUnlocked(q.id)
                   ? 'glass-card text-romantic-purple border-white/40'
-                  : 'bg-romantic-lavender/30 text-romantic-purple/40 border-romantic-lavender/50'
+                  : ' text-romantic-purple/40 border-romantic-lavender/50'
             }`}
           >
             {answeredIds.has(q.id) ? '✓' : q.id}
@@ -82,7 +82,7 @@ export function QuestionsSection({
                 placeholder="Write anything you feel here... 💕"
                 disabled={disabled}
                 rows={4}
-                className="input-romantic w-full min-h-[100px] py-4 rounded-2xl bg-white/40 border-2 border-romantic-lavender/50 text-romantic-purple placeholder-romantic-purple/50 outline-none resize-none transition-all duration-200"
+                className="input-romantic w-full min-h-[100px] py-4  bg-white/40 border-2 border-romantic-lavender/50 text-black placeholder-romantic-purple/50 outline-none resize-none transition-all duration-200"
               />
               <motion.button
                 type="button"
